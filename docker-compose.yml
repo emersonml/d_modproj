@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  node_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${HOST_PORT}:3000" # Mapeia a porta do contêiner para a porta definida em HOST_PORT
+    volumes:
+      - .:/app
+      # - ./volume/app:/app
+    environment:
+      HOST: "0.0.0.0" # Define o host do servidor Vite para que seja acessível em todas as interfaces de rede
+    # command: yarn
