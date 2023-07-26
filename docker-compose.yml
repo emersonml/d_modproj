@@ -1,10 +1,16 @@
 version: '3'
 
 services:
-  node_app:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: app_modproj
+    hostname: modproj
+    env_file:
+      - .env
+    networks:
+      - net_modproj
     ports:
       - "${HOST_PORT}:3000" # Mapeia a porta do contêiner para a porta definida em HOST_PORT
     volumes:
@@ -12,4 +18,10 @@ services:
       # - ./volume/app:/app
     environment:
       HOST: "0.0.0.0" # Define o host do servidor Vite para que seja acessível em todas as interfaces de rede
+    ############## ATENCAO COMENTAR ESSE COMANDO APÓS A PRIMEIRA EXECUÇÃO
     # command: yarn
+
+networks:
+  net_modproj:
+    name: net_modproj
+    external: true
