@@ -13,7 +13,7 @@ modelo de projeto com docker
  # COMENTE A LINHA command: yarn NO ARQUIVO DOCKER-COMPOSE. ASSIM O ULTIMO "CMD" É DO DOCKERFILE.
 
 
-# cmds uteis:
+# cmds uteisS:
   docker network ls
   docker inspect cont | grep IPAddress
 
