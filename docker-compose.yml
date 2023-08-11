@@ -10,21 +10,10 @@ services:
     env_file:
       - .env
     ports:
-      - "${HOST_PORT}:3000" # Mapeia a porta do contêiner para a porta definida em HOST_PORT
+      - "${HOST_PORT_HOSPEDEIRO}:${HOST_PORT_CONTAINER}" # Mapeia a porta do contêiner para a porta definida em HOST_PORT
     volumes:
       - .:/app
-    # networks:
-    #   net:
-    #     ipv4_address: 10.0.1.2
+
     environment:
       HOST: "0.0.0.0" # Define o host do servidor Vite para que seja acessível em todas as interfaces de rede
-    ############## ATENCAO COMENTAR ESSE COMANDO APÓS A PRIMEIRA EXECUÇÃO
     # command: yarn
-
-
-# networks:
-#   net:
-#     driver: bridge
-#     ipam:
-#       config:
-#         - subnet: 10.0.1.0/24
