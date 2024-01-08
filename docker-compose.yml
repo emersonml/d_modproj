@@ -5,25 +5,28 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    # container_name: app_modproj
     hostname: mod
     env_file:
       - .env
     ports:
-      - "${HOST_PORT_HOSPEDEIRO}:${HOST_PORT_CONTAINER}" # Mapeia a porta do contêiner para a porta definida em HOST_PORT
+      - "${HOST_PORT_HOSPEDEIRO}:${HOST_PORT_CONTAINER}"
     volumes:
       - .:/app
-
     environment:
-      HOST: "0.0.0.0" # Define o host do servidor Vite para que seja acessível em todas as interfaces de rede
-    # command: yarn
+      HOST: "0.0.0.0"
     networks:
-      network:
-        ipv4_address: 10.0.5.2
+      - nginx_network
+
+# networks:
+#   nginx_network:
+#     name: nginx_network
+#     driver: bridge
 
 networks:
-  network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 10.0.5.0/24
+  nginx_network:
+    external: true
+
+
+
+
+

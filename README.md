@@ -2,6 +2,12 @@
 modelo de projeto com docker 
 
 
+sudo docker network ls
+sudo docker network connect nginx_network mod-app-1
+sudo docker exec -it mod-app-1 /bin/bash
+
+
+
 # 1 Passo: Crie primeiro o NETWORK antes de executar o docker compose
 
  # 1. CRIAR PRIMEIRO o NETWORK antes de executar o docker compose. 
