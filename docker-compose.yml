@@ -15,16 +15,26 @@ services:
     environment:
       HOST: "0.0.0.0"
     networks:
-      - nginx_network
+      network:
+        ipv4_address: 10.0.5.2
+      nginx_network:
+        ipv4_address: 10.0.2.3
+
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.5.0/24
+  nginx_network:
+    external: true
 
 # networks:
 #   nginx_network:
 #     name: nginx_network
 #     driver: bridge
 
-networks:
-  nginx_network:
-    external: true
+
 
 
 
