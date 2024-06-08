@@ -5,14 +5,14 @@ FROM node:14.19.1
 WORKDIR /app
 
 # Copia o arquivo package.json e package-lock.json para o diretório de trabalho
-COPY package*.json ./
+COPY ./app/package*.json ./
 
 # Instala as dependências do projeto
 RUN npm install
 
 
 # Copia todo o código-fonte para o diretório de trabalho
-COPY . .
+COPY ./app .
 
 # VOLUME /app
 

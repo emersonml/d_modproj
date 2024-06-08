@@ -10,7 +10,7 @@ services:
     ports:
       - "${HOST_PORT_HOSPEDEIRO}:${HOST_PORT_CONTAINER}"
     volumes:
-      - ./:/app
+      - ./app:/app
     environment:
       HOST: "0.0.0.0"
 
